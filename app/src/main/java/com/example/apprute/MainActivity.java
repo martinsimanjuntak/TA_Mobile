@@ -14,7 +14,11 @@ import android.widget.Toast;
 
 
 import com.example.apprute.Adapter.HarborAdapter;
+import com.example.apprute.Adapter.HomeAdapter;
+import com.example.apprute.Adapter.PortRouteAdapter;
 import com.example.apprute.model.Harbor;
+import com.example.apprute.model.PortRoute;
+import com.example.apprute.model.Route;
 import com.example.apprute.service.ApiInterface;
 import com.example.apprute.service.BaseUrl;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.itemhome);
+        apiInterface = BaseUrl.getClient().create(ApiInterface.class);
+        getAllPortRoute();
+        recyclerView = findViewById(R.id.recycerlview_home);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        apiInterface = BaseUrl.getClient().create(ApiInterface.class);
 ////        recyclerView = findViewById(R.id.recycerlview);
 ////        recyclerView.setHasFixedSize(true);
 ////        recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.itemhome:
                         return true;
                     case R.id.tour:
-                        startActivity(new Intent(getApplicationContext(), TouristAttractionsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), InformationTravelActivity.class));
                         return true;
                 }
                 return false;
@@ -88,6 +98,22 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+    private void getAllPortRoute(){
+    Call<List<PortRoute>> listCall = apiInterface.getRoute();
+    listCall.enqueue(new Callback<List<PortRoute>>() {
+        @Override
+        public void onResponse(Call<List<PortRoute>> call, Response<List<PortRoute>> response) {
+            List<PortRoute> portRoutes = response.body();
+            HomeAdapter portRouteAdapter = new HomeAdapter(MainActivity.this,portRoutes);
+            recyclerView.setAdapter(portRouteAdapter);
+        }
+
+        @Override
+        public void onFailure(Call<List<PortRoute>> call, Throwable t) {
+
+        }
+    });
+}
 
 
 }

@@ -5,5 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Maps.TestActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="TESSSSSTTT"
+        android:textAlignment="center"
+        app:flow_verticalAlign="center"
 
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

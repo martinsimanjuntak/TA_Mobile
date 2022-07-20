@@ -52,7 +52,6 @@ public class HarborActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Harbor>> call, Throwable t) {
-                System.out.println("ANING : "+t.getMessage());
                 Log.e("Error", t.getMessage());
                 Toast.makeText(HarborActivity.this, t.getMessage() , Toast.LENGTH_SHORT).show();
             }

@@ -2,7 +2,7 @@ package com.example.apprute.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Response{
+public class PortRoute {
 
 	@SerializedName("harbor_end")
 	private int harborEnd;

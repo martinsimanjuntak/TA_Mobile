@@ -27,17 +27,20 @@ import java.util.List;
 public class TouristAttractionsAdapter extends RecyclerView.Adapter<TouristAttractionsAdapter.TouristHolder>{
     Context context;
     private List<TouristAttraction> touristAttractionList = new ArrayList<>();
+    String time, location;
 
 
-    public TouristAttractionsAdapter(Context context, List<TouristAttraction> touristAttractionList) {
+    public TouristAttractionsAdapter(Context context, List<TouristAttraction> touristAttractionList, String time, String location) {
         this.context = context;
         this.touristAttractionList = touristAttractionList;
+        this.time = time;
+        this.location  = location;
     }
 
     @NonNull
     @Override
     public TouristAttractionsAdapter.TouristHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.tourist_attraction_item , parent , false);
+        View view = LayoutInflater.from(context).inflate(R.layout.tourist_attraction_item2, parent , false);
         return new TouristAttractionsAdapter.TouristHolder(view);
     }
 
@@ -65,9 +68,9 @@ public class TouristAttractionsAdapter extends RecyclerView.Adapter<TouristAttra
         MaterialCardView parentLayout;
         public TouristHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.tourist_attraction_name);
-            location = itemView.findViewById(R.id.location_tourist_attraction);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            name = itemView.findViewById(R.id.tourist_attraction_name2);
+            location = itemView.findViewById(R.id.location_tourist_attraction2);
+            parentLayout = itemView.findViewById(R.id.parent_layout2);
         }
     }
     public interface OnNoteListener{

@@ -5,7 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Harbor {
 
 	@SerializedName("route_id")
-	private Object routeId;
+	private int routeId;
+
+	@SerializedName("latitude")
+	private double latitude;
 
 	@SerializedName("description")
 	private String description;
@@ -19,43 +22,34 @@ public class Harbor {
 	@SerializedName("id")
 	private int id;
 
-	public void setRouteId(Object routeId){
-		this.routeId = routeId;
-	}
+	@SerializedName("longitude")
+	private double longitude;
 
-	public Object getRouteId(){
+	public int getRouteId(){
 		return routeId;
 	}
 
-	public void setDescription(String description){
-		this.description = description;
+	public double getLatitude(){
+		return latitude;
 	}
 
 	public String getDescription(){
 		return description;
 	}
 
-	public void setHarborName(String harborName){
-		this.harborName = harborName;
-	}
-
 	public String getHarborName(){
 		return harborName;
-	}
-
-	public void setLocation(String location){
-		this.location = location;
 	}
 
 	public String getLocation(){
 		return location;
 	}
 
-	public void setId(int id){
-		this.id = id;
-	}
-
 	public int getId(){
 		return id;
+	}
+
+	public double getLongitude(){
+		return longitude;
 	}
 }

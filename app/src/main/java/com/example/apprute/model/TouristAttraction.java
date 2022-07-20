@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class TouristAttraction {
 
+	@SerializedName("latitude")
+	private double latitude;
+
 	@SerializedName("name")
 	private String name;
 
@@ -15,6 +18,16 @@ public class TouristAttraction {
 
 	@SerializedName("id")
 	private int id;
+
+	@SerializedName("category")
+	private int category;
+
+	@SerializedName("longitude")
+	private double longitude;
+
+	public double getLatitude(){
+		return latitude;
+	}
 
 	public String getName(){
 		return name;
@@ -30,5 +43,13 @@ public class TouristAttraction {
 
 	public int getId(){
 		return id;
+	}
+
+	public int getCategory(){
+		return category;
+	}
+
+	public double getLongitude(){
+		return longitude;
 	}
 }

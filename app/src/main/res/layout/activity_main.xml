@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <LinearLayout
+        android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_header"
@@ -20,6 +21,17 @@
             android:textSize="15dp"
             />
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycerlview_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/line1"
+        app:layout_constraintTop_toTopOf="parent"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

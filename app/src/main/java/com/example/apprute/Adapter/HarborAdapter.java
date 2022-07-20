@@ -36,6 +36,8 @@ public class HarborAdapter extends RecyclerView.Adapter<HarborAdapter.HarborHold
         Harbor harbor = harborList.get(position);
         holder.harborName.setText(harbor.getHarborName());
         holder.location.setText(harbor.getLocation());
+        holder.latitude.setText(Double.toString(harbor.getLatitude()));
+        holder.longitude.setText(Double.toString(harbor.getLongitude()));
     }
 
     @Override
@@ -44,11 +46,13 @@ public class HarborAdapter extends RecyclerView.Adapter<HarborAdapter.HarborHold
     }
 
     public class HarborHolder extends RecyclerView.ViewHolder {
-        TextView harborName, location;
+        TextView harborName, location, latitude, longitude;
         public HarborHolder(@NonNull View itemView) {
             super(itemView);
             harborName =itemView.findViewById(R.id.harborName);
             location = itemView.findViewById(R.id.location);
+            latitude = itemView.findViewById(R.id.latitude);
+            longitude = itemView.findViewById(R.id.longitude);
         }
     }
 }
